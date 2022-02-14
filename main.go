@@ -1,13 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 )
 
 func main(){
 	r:=gin.Default()
 	r.GET("/ping",func(ctx * gin.Context){
-		fmt.Println("pong...")
+		ctx.JSON(200,map[string]interface{}{
+			"message": "pong",
+		})
 	})
+	r.Run("localhost:8000")
 }
