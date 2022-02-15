@@ -1,4 +1,4 @@
-module my-app
+module github.com/SubhramRanaRZP/my-app
 
 go 1.16
 
