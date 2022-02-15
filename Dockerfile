@@ -1,6 +1,5 @@
 FROM golang:latest
-RUN mkdir /build
-WORKDIR /build
+WORKDIR /
 RUN export GO111MODULE=on
 RUN git clone https://github.com/SubhramRanaRZP/my-app
 WORKDIR my-app
