@@ -10,3 +10,12 @@ jobs:
       - name: build image
         run: |
           docker build . -t my-app:latest
+      - name: docker login
+        env:
+          DOCKER_USERNAME: {{$secrets.DOCKER_USERNMAE}}
+          DOCKER_PASSWORD: {{$secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - name: docker push
+        run: |
+          docker push subhramranarzp/my-app:${{github.sha}}
