@@ -1,0 +1,12 @@
+name: CI
+on: [push]
+jobs:
+  build-web-docker:
+    name: build web
+    runs-on: [self-hosted]
+    steps:
+      - name: checkout to the SubhramRanaRZP/my-app repo
+        uses: actions/checkout@v2
+      - name: build image
+        run: |
+          docker build . -t my-app:latest
