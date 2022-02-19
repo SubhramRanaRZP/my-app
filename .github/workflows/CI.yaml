@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build-web-docker:
     name: build web
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     steps:
       - name: checkout to the SubhramRanaRZP/my-app repo
         uses: actions/checkout@v2
