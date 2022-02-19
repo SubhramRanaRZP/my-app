@@ -7,15 +7,15 @@ jobs:
     steps:
       - name: checkout to the SubhramRanaRZP/my-app repo
         uses: actions/checkout@v2
-      - name: build image
-        run: |
-          docker build . -t my-app:latest
       - name: docker login
         env:
           DOCKER_USERNAME: ${{secrets.DOCKER_USERNMAE}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: |
-          docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
+            cat $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+      - name: build image
+        run: |
+          docker build . -t my-app:latest
       - name: docker push
         run: |
           docker push subhramranarzp/my-app:${{github.sha}}
