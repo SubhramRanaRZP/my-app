@@ -24,7 +24,7 @@ build-image:
 .PHONY: run-image
 run-image:
 	echo "spinning up container..."
-	docker run -p 127.0.0.1:8000:8000 --name my-app my-app
+	docker run -d -p 127.0.0.1:8000:8000 --name my-app my-app
 
 .PHONY: container
 container: build-image run-image

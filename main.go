@@ -11,5 +11,5 @@ func main(){
 			"message": "pong",
 		})
 	})
-	r.Run("localhost:8000")
+	r.Run("0.0.0.0:8000")
 }
